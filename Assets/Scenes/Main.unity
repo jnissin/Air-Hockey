@@ -177,7 +177,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 149858896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.4000015, y: 0, z: 0}
+  m_LocalPosition: {x: 70.1600037, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589306340}
@@ -419,26 +419,6 @@ Prefab:
     - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 197732, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
-      propertyPath: m_Name
-      value: Trail
-      objectReference: {fileID: 0}
-    - target: {fileID: 5028474, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9647666, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
-      propertyPath: m_StartWidth
-      value: 5.36999989
-      objectReference: {fileID: 0}
-    - target: {fileID: 9647666, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
-      propertyPath: m_EndWidth
-      value: 5.26000023
-      objectReference: {fileID: 0}
-    - target: {fileID: 9647666, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
-      propertyPath: m_Time
-      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
@@ -687,6 +667,14 @@ Prefab:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11446492, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: PlayerOneNameDisplay
+      value: 
+      objectReference: {fileID: 1940045548}
+    - target: {fileID: 11446492, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: PlayerTwoNameDisplay
+      value: 
+      objectReference: {fileID: 1297837674}
+    - target: {fileID: 11446492, guid: 70b9707e2275f4dba9be667206777410, type: 2}
       propertyPath: PlayerOneScoreDisplay
       value: 
       objectReference: {fileID: 1468310097}
@@ -702,14 +690,6 @@ Prefab:
       propertyPath: PlayerTwoGoal
       value: 
       objectReference: {fileID: 149858896}
-    - target: {fileID: 11446492, guid: 70b9707e2275f4dba9be667206777410, type: 2}
-      propertyPath: PlayerOneNameDisplay
-      value: 
-      objectReference: {fileID: 1940045548}
-    - target: {fileID: 11446492, guid: 70b9707e2275f4dba9be667206777410, type: 2}
-      propertyPath: PlayerTwoNameDisplay
-      value: 
-      objectReference: {fileID: 1297837674}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70b9707e2275f4dba9be667206777410, type: 2}
   m_IsPrefabParent: 0
@@ -838,7 +818,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512425320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -59.2999992, y: 0, z: 0}
+  m_LocalPosition: {x: -69.6999969, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589306340}
