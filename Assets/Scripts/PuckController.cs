@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PuckController : MonoBehaviour
 {
+	[SerializeField]
 	private AudioSource m_audioSource = null;
 
 	public AudioSource AudioSource
