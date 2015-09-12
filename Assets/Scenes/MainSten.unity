@@ -150,7 +150,7 @@ GameObject:
   - 61: {fileID: 149858897}
   - 114: {fileID: 149858899}
   m_Layer: 0
-  m_Name: GoalPlayer1
+  m_Name: GoalPlayer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,11 +492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de6af2ad51e3401aa91860f128794a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerOneScoreDisplay: {fileID: 1468310097}
-  PlayerTwoScoreDisplay: {fileID: 1667583131}
-  PlayerOneGoal: {fileID: 149858896}
+  PlayerTwoScoreDisplay: {fileID: 1468310097}
+  PlayerOneScoreDisplay: {fileID: 1667583131}
   PlayerTwoGoal: {fileID: 1512425320}
-  PuckPrefab: {fileID: 0}
+  PlayerOneGoal: {fileID: 149858896}
+  PuckPrefab: {fileID: 191186, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
 --- !u!4 &1040777758
 Transform:
   m_ObjectHideFlags: 0
@@ -588,40 +588,40 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 401504, guid: e41d8a71d693444a191b72b4502fa28a, type: 2}
+    - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 401504, guid: e41d8a71d693444a191b72b4502fa28a, type: 2}
+    - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 401504, guid: e41d8a71d693444a191b72b4502fa28a, type: 2}
+    - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 401504, guid: e41d8a71d693444a191b72b4502fa28a, type: 2}
+    - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 401504, guid: e41d8a71d693444a191b72b4502fa28a, type: 2}
+    - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 401504, guid: e41d8a71d693444a191b72b4502fa28a, type: 2}
+    - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 401504, guid: e41d8a71d693444a191b72b4502fa28a, type: 2}
+    - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 401504, guid: e41d8a71d693444a191b72b4502fa28a, type: 2}
+    - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e41d8a71d693444a191b72b4502fa28a, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1468310095
 GameObject:
@@ -634,7 +634,7 @@ GameObject:
   - 222: {fileID: 1468310098}
   - 114: {fileID: 1468310097}
   m_Layer: 5
-  m_Name: Player1ScoreValue
+  m_Name: Player2ScoreValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -809,7 +809,7 @@ GameObject:
   - 61: {fileID: 1512425322}
   - 114: {fileID: 1512425323}
   m_Layer: 0
-  m_Name: GoalPlayer2
+  m_Name: GoalPlayer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1155,7 +1155,7 @@ GameObject:
   - 222: {fileID: 1667583132}
   - 114: {fileID: 1667583131}
   m_Layer: 5
-  m_Name: Player2ScoreValue
+  m_Name: Player1ScoreValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1774,7 +1774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5f5addf37204f7f963e63286b35c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_velocityMultiplier: 30
 --- !u!1 &2146423318
 GameObject:
   m_ObjectHideFlags: 0
