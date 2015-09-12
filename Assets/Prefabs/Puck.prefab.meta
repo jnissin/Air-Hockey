@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: b1968f5031d2e4f64bf6e5cea276f300
-timeCreated: 1442086109
-=======
-guid: e41d8a71d693444a191b72b4502fa28a
-timeCreated: 1442086552
->>>>>>> Allow players to make goals
+timeCreated: 1442087090
 licenseType: Free
 NativeFormatImporter:
   userData: 
