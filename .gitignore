@@ -17,5 +17,7 @@
 # Unity3D generated meta files
 *.pidb.meta
 
+.DS_STORE
+
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
