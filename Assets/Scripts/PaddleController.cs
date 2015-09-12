@@ -6,9 +6,12 @@ using System;
 
 public class PaddleController : MonoBehaviour
 {
-	private Vector3 _localPositionToGo 	= Vector3.zero;
-	private Vector3	_lastLocalPosition 	= Vector3.zero;
-	private Vector3 _worldDeltaPosition = Vector3.zero;
+	[SerializeField]
+	private BoxCollider2D 	_playerBoundsCollider 	= null;
+
+	private Bounds			_playerBounds;
+	private Vector3 		_localPositionToGo 		= Vector3.zero;
+	private Vector3 		_worldDeltaPosition 	= Vector3.zero;
 
 	private Rigidbody2D Rigidbody
 	{
@@ -18,13 +21,14 @@ public class PaddleController : MonoBehaviour
 
 	void Awake()
 	{
-		_localPositionToGo = _lastLocalPosition = transform.localPosition;
 		Rigidbody = GetComponent<Rigidbody2D> ();
+
+		_localPositionToGo = transform.localPosition;
+		_playerBounds = _playerBoundsCollider.bounds;
 	}
 	
 	void FixedUpdate ()
 	{
-		_lastLocalPosition = _localPositionToGo;
 		Rigidbody.MovePosition (new Vector2 (_localPositionToGo.x, _localPositionToGo.y));
 	}
 
@@ -44,10 +48,15 @@ public class PaddleController : MonoBehaviour
 		}
 	}
 
-	private void PanHandler(object sender, EventArgs e)
+	void PanHandler(object sender, EventArgs e)
 	{
 		var gesture = (SimplePanGesture)sender;
-		
-		_localPositionToGo += gesture.LocalDeltaPosition;
+
+		Vector3 newWorldPos = transform.TransformPoint (_localPositionToGo + gesture.LocalDeltaPosition);
+
+		if (_playerBounds.Contains (gesture.WorldTransformCenter))
+		{
+			_localPositionToGo += gesture.LocalDeltaPosition;
+		}
 	}
 }
