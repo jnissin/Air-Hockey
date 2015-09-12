@@ -13,43 +13,43 @@ public class GameMasterController : MonoBehaviour {
 	
 	private int _startTime = 0;
 	
-	public IntReactiveProperty PlayerOneScore { get; protected set; }
 	public IntReactiveProperty PlayerTwoScore { get; protected set; }
+	public IntReactiveProperty PlayerOneScore { get; protected set; }
 	public IntReactiveProperty GameTimeSeconds { get; protected set; }
 	
-	public Text PlayerOneScoreDisplay = null;
 	public Text PlayerTwoScoreDisplay = null;
-	public GameObject PlayerOneGoal = null;
+	public Text PlayerOneScoreDisplay = null;
 	public GameObject PlayerTwoGoal = null;
+	public GameObject PlayerOneGoal = null;
 	public GameObject PuckPrefab = null;
 	
 
 	// Use this for initialization
 	void Start () {
-		PlayerOneScore = new IntReactiveProperty(0);
 		PlayerTwoScore = new IntReactiveProperty(0);
+		PlayerOneScore = new IntReactiveProperty(0);
 		GameTimeSeconds = new IntReactiveProperty(60);
 		
 		Observable
 			.Interval(TimeSpan.FromSeconds(1))
 			.Subscribe(_ => GameTimeSeconds.Value += 1);
 			
-		PlayerOneScore.Subscribe( score => PlayerOneScoreDisplay.text = score.ToString());
 		PlayerTwoScore.Subscribe( score => PlayerTwoScoreDisplay.text = score.ToString());
-		
-		PlayerOneGoal
-			.OnTriggerEnter2DAsObservable ()
-			.Where (collision => collision.gameObject.CompareTag("Puck"))
-			.Subscribe (_ => PlayerTwoScore.Value += 1);
+		PlayerOneScore.Subscribe( score => PlayerOneScoreDisplay.text = score.ToString());
 		
 		PlayerTwoGoal
 			.OnTriggerEnter2DAsObservable ()
 			.Where (collision => collision.gameObject.CompareTag("Puck"))
 			.Subscribe (_ => PlayerOneScore.Value += 1);
-
+		
 		PlayerOneGoal
+			.OnTriggerEnter2DAsObservable ()
+			.Where (collision => collision.gameObject.CompareTag("Puck"))
+			.Subscribe (_ => PlayerTwoScore.Value += 1);
+
+		PlayerTwoGoal
 			.OnTriggerExit2DAsObservable ()
-			.Merge (PlayerTwoGoal.OnTriggerExit2DAsObservable())
+			.Merge (PlayerOneGoal.OnTriggerExit2DAsObservable())
 			.Where (trigger => trigger.gameObject.CompareTag("Puck"))
 			.Subscribe(ev => { 
 				ev.gameObject
