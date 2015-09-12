@@ -39,10 +39,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de6af2ad51e3401aa91860f128794a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTwoScoreDisplay: {fileID: 0}
+  PlayerOneNameDisplay: {fileID: 0}
+  PlayerTwoNameDisplay: {fileID: 0}
   PlayerOneScoreDisplay: {fileID: 0}
-  PlayerTwoGoal: {fileID: 0}
+  PlayerTwoScoreDisplay: {fileID: 0}
   PlayerOneGoal: {fileID: 0}
+  PlayerTwoGoal: {fileID: 0}
   PuckPrefab: {fileID: 191186, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
 --- !u!1001 &100100000
 Prefab:

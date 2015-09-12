@@ -12,15 +12,17 @@ using UniRx.Triggers;
 public class GameMasterController : MonoBehaviour {
 	
 	private int _startTime = 0;
-	
-	public IntReactiveProperty PlayerTwoScore { get; protected set; }
+
 	public IntReactiveProperty PlayerOneScore { get; protected set; }
+	public IntReactiveProperty PlayerTwoScore { get; protected set; }
 	public IntReactiveProperty GameTimeSeconds { get; protected set; }
-	
-	public Text PlayerTwoScoreDisplay = null;
+
+	public Text PlayerOneNameDisplay = null;
+	public Text PlayerTwoNameDisplay = null;
 	public Text PlayerOneScoreDisplay = null;
-	public GameObject PlayerTwoGoal = null;
+	public Text PlayerTwoScoreDisplay = null;
 	public GameObject PlayerOneGoal = null;
+	public GameObject PlayerTwoGoal = null;
 	public GameObject PuckPrefab = null;
 	
 
@@ -51,7 +53,8 @@ public class GameMasterController : MonoBehaviour {
 			.OnTriggerExit2DAsObservable ()
 			.Merge (PlayerOneGoal.OnTriggerExit2DAsObservable())
 			.Where (trigger => trigger.gameObject.CompareTag("Puck"))
-			.Subscribe(ev => { 
+			.Delay (TimeSpan.FromSeconds (0.5))
+			.Subscribe(ev => {
 				ev.gameObject
 		           .OnDestroyAsObservable ()
 		           .Delay (TimeSpan.FromSeconds (1))
