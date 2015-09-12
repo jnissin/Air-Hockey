@@ -2,16 +2,13 @@
 using System.Collections;
 using TouchScript.Gestures;
 using TouchScript.Gestures.Simple;
+using System;
 
 public class PaddleController : MonoBehaviour
 {
-	public float m_velocityMultiplier = 1.0f;
-
-	public float VelocityMultiplier
-	{
-		get				{ return m_velocityMultiplier; 	}
-		protected set	{ m_velocityMultiplier = value; }
-	}
+	private Vector3 _localPositionToGo 	= Vector3.zero;
+	private Vector3	_lastLocalPosition 	= Vector3.zero;
+	private Vector3 _worldDeltaPosition = Vector3.zero;
 
 	private Rigidbody2D Rigidbody
 	{
@@ -19,36 +16,38 @@ public class PaddleController : MonoBehaviour
 		set;
 	}
 
-	// Use this for initialization
-	void Start ()
+	void Awake()
 	{
+		_localPositionToGo = _lastLocalPosition = transform.localPosition;
 		Rigidbody = GetComponent<Rigidbody2D> ();
 	}
 	
-	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{
-	
+		_lastLocalPosition = _localPositionToGo;
+		Rigidbody.MovePosition (new Vector2 (_localPositionToGo.x, _localPositionToGo.y));
 	}
 
-	void OnEnable ()
+	void OnEnable()
 	{
-		GetComponent<SimplePanGesture> ().Panned += PanHandler;
+		if (GetComponent<SimplePanGesture>() != null)
+		{
+			GetComponent<SimplePanGesture>().Panned += PanHandler;
+		}
 	}
 
 	void OnDisable ()
 	{
-		GetComponent<SimplePanGesture> ().Panned -= PanHandler;
+		if (GetComponent<SimplePanGesture>() != null)
+		{
+			GetComponent<SimplePanGesture> ().Panned -= PanHandler;
+		}
 	}
 
-	void PanHandler (object sender, System.EventArgs e)
+	private void PanHandler(object sender, EventArgs e)
 	{
-		PanGesture gesture = sender as PanGesture;
+		var gesture = (SimplePanGesture)sender;
 		
-		if (float.IsNaN (gesture.ScreenPosition.x) || float.IsNaN (gesture.ScreenPosition.y))
-			return;
-		
-		Vector2 newVelocity = new Vector2 (gesture.WorldDeltaPosition.x, gesture.WorldDeltaPosition.y) * VelocityMultiplier;
-		GetComponent<Rigidbody2D> ().velocity = newVelocity;
+		_localPositionToGo += gesture.LocalDeltaPosition;
 	}
 }

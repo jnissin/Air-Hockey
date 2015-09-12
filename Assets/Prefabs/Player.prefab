@@ -11,10 +11,10 @@ GameObject:
   - 212: {fileID: 21225220}
   - 58: {fileID: 5888412}
   - 114: {fileID: 11486168}
-  - 114: {fileID: 11457218}
-  - 114: {fileID: 11440662}
+  - 50: {fileID: 5087190}
+  - 114: {fileID: 11402462}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,11 +27,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37, y: 0, z: 0}
+  m_LocalPosition: {x: -43.0999985, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5087190
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105280}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &5888412
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -45,19 +61,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
---- !u!114 &11440662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105280}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc5f5addf37204f7f963e63286b35c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_velocityMultiplier: 25
---- !u!114 &11457218
+--- !u!114 &11402462
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -65,12 +69,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 105280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb1710b333934f8e9eea1b71e2cdf91, type: 3}
+  m_Script: {fileID: 11500000, guid: cc5f5addf37204f7f963e63286b35c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
-  PanMultiplier: 1
-  AllowChangingFromOutside: 1
 --- !u!114 &11486168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,7 +117,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 07d6b7920a8be4f09a5dc5166380982e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
