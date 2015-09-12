@@ -165,7 +165,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 149858896}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -210,7 +210,7 @@ Transform:
   - {fileID: 422966182}
   - {fileID: 1022565939}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &279087025
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ Transform:
   - {fileID: 1512425321}
   - {fileID: 2146423319}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &668226161
 Prefab:
   m_ObjectHideFlags: 0
@@ -425,6 +425,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 7a94a0a1c0d6e460692b24527db03bd3,
         type: 3}
+    - target: {fileID: 448134, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1968f5031d2e4f64bf6e5cea276f300, type: 2}
   m_IsPrefabParent: 0
@@ -632,6 +636,64 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1468310095}
+--- !u!1001 &1471470537
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 428824, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428824, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428824, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428824, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428824, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428824, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428824, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 428824, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446492, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: PlayerTwoGoal
+      value: 
+      objectReference: {fileID: 149858896}
+    - target: {fileID: 11446492, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: PlayerOneGoal
+      value: 
+      objectReference: {fileID: 1512425320}
+    - target: {fileID: 11446492, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: PlayerTwoScoreDisplay
+      value: 
+      objectReference: {fileID: 1667583131}
+    - target: {fileID: 11446492, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+      propertyPath: PlayerOneScoreDisplay
+      value: 
+      objectReference: {fileID: 1468310097}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 70b9707e2275f4dba9be667206777410, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1497090556
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +832,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1512425320}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
