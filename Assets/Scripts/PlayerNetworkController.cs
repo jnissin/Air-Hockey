@@ -10,6 +10,8 @@ public class PlayerNetworkController : NetworkBehaviour
 	[SerializeField]	private	Rigidbody2D		playerRigidbody;
 	[SerializeField] 	private Transform 		playerTransform;
 	[SerializeField]	private float			lerpRate		 	= 15.0f;
+	[SerializeField]	private	float			transmitThreshold	= 1.0f;
+						private	Vector3			lastPosition		= Vector3.zero;
 
 	void Start ()
 	{
@@ -23,6 +25,10 @@ public class PlayerNetworkController : NetworkBehaviour
 	void FixedUpdate ()
 	{
 		TransmitPosition ();
+	}
+
+	void Update ()
+	{
 		LerpPosition ();
 	}
 
@@ -43,9 +49,10 @@ public class PlayerNetworkController : NetworkBehaviour
 	[ClientCallback]
 	void TransmitPosition ()
 	{
-		if (isLocalPlayer)
+		if (isLocalPlayer && Vector3.Distance (playerTransform.position, lastPosition) > transmitThreshold)
 		{
 			CmdProvidePositionToServer (playerTransform.position);
+			lastPosition = playerTransform.position;
 		}
 	}
 }

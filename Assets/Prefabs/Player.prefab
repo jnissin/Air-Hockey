@@ -49,7 +49,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &5888412
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -110,6 +110,7 @@ MonoBehaviour:
   playerRigidbody: {fileID: 5087190}
   playerTransform: {fileID: 476428}
   lerpRate: 15
+  transmitThreshold: 1
 --- !u!114 &11498284
 MonoBehaviour:
   m_ObjectHideFlags: 1
