@@ -205,7 +205,7 @@ TrailRenderer:
       serializedVersion: 2
       rgba: 16777215
   m_MinVertexDistance: .100000001
-  m_Autodestruct: 1
+  m_Autodestruct: 0
 --- !u!114 &11440528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,6 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trail: {fileID: 197732}
+  _audioSource: {fileID: 0}
+  _rigidbody: {fileID: 0}
 --- !u!114 &11493172
 MonoBehaviour:
   m_ObjectHideFlags: 1
