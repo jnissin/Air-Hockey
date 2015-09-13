@@ -4,6 +4,7 @@ import {
 
 const GAMES = {};
 
+// send messages to the other player
 function relayMessage(msg) {
   const game = GAMES[msg.gameId];
 
