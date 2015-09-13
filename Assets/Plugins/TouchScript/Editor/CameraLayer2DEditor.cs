@@ -2,6 +2,8 @@
  * @author Valentin Simonov / http://va.lent.in/
  */
 
+#if UNITY_EDITOR
+
 using System;
 using System.Reflection;
 using TouchScript.Layers;
@@ -76,3 +78,5 @@ namespace TouchScript.Editor.Layers
         }
     }
 }
+
+#endif

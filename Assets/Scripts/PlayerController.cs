@@ -4,14 +4,17 @@ using TouchScript.Gestures;
 using TouchScript.Gestures.Simple;
 using System;
 
-public class PaddleController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-	[SerializeField]
-	private BoxCollider2D 	_playerBoundsCollider 	= null;
-
 	private Bounds			_playerBounds;
 	private Vector3 		_localPositionToGo 		= Vector3.zero;
 	private Vector3 		_worldDeltaPosition 	= Vector3.zero;
+
+	public Bounds PlayerBounds
+	{
+		get { return _playerBounds; }
+		set { _playerBounds = value; }
+	}
 
 	private Rigidbody2D Rigidbody
 	{
@@ -22,9 +25,7 @@ public class PaddleController : MonoBehaviour
 	void Awake()
 	{
 		Rigidbody = GetComponent<Rigidbody2D> ();
-
 		_localPositionToGo = transform.localPosition;
-		_playerBounds = _playerBoundsCollider.bounds;
 	}
 	
 	void FixedUpdate ()
@@ -52,11 +53,11 @@ public class PaddleController : MonoBehaviour
 	{
 		var gesture = (SimplePanGesture)sender;
 
-		Vector3 newWorldPos = transform.TransformPoint (_localPositionToGo + gesture.LocalDeltaPosition);
+		//Vector3 newWorldPos = transform.TransformPoint (_localPositionToGo + gesture.LocalDeltaPosition);
 
-		if (_playerBounds.Contains (gesture.WorldTransformCenter))
-		{
+		//if (_playerBounds.Contains (gesture.WorldTransformCenter))
+		//{
 			_localPositionToGo += gesture.LocalDeltaPosition;
-		}
+		//}
 	}
 }

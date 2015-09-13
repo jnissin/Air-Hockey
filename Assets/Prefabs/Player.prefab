@@ -10,9 +10,11 @@ GameObject:
   - 4: {fileID: 476428}
   - 212: {fileID: 21225220}
   - 58: {fileID: 5888412}
-  - 114: {fileID: 11486168}
   - 50: {fileID: 5087190}
+  - 114: {fileID: 11486168}
   - 114: {fileID: 11402462}
+  - 114: {fileID: 11490904}
+  - 114: {fileID: 11498284}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.0999985, y: 0, z: 0}
+  m_LocalPosition: {x: -43, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +69,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105280}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc5f5addf37204f7f963e63286b35c22, type: 3}
   m_Name: 
@@ -78,7 +80,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105280}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18911ace8b3104bd0bff908fde71a1db, type: 3}
   m_Name: 
@@ -94,6 +96,52 @@ MonoBehaviour:
   projection: 0
   projectionNormal: {x: 0, y: 0, z: 1}
   movementThreshold: .5
+--- !u!114 &11490904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccb9954af529420597584e51c5dbe37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 5087190}
+  playerTransform: {fileID: 476428}
+  lerpRate: 15
+--- !u!114 &11498284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 154
+    i1: 225
+    i2: 87
+    i3: 79
+    i4: 14
+    i5: 248
+    i6: 180
+    i7: 37
+    i8: 170
+    i9: 184
+    i10: 64
+    i11: 169
+    i12: 108
+    i13: 133
+    i14: 4
+    i15: 135
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!212 &21225220
 SpriteRenderer:
   m_ObjectHideFlags: 1

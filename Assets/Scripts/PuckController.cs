@@ -38,7 +38,7 @@ public class PuckController : MonoBehaviour
 		this.UpdateAsObservable ()
 			.Select (_ => GetPositionVector ())
 			.DistinctUntilChanged ()
-			.Subscribe (position => Trail.transform.localPosition = position);				
+			.Subscribe (position => Trail.transform.localPosition = position);			
 	}
 
 	Vector3 GetPositionVector ()
