@@ -8,7 +8,10 @@ public class PuckController : MonoBehaviour
 	[SerializeField]
 	private	GameObject	_trail			= null;
 
+	[SerializeField]
 	private AudioSource _audioSource 	= null;
+
+	[SerializeField]
 	private Rigidbody2D _rigidbody 		= null;
 
 	public AudioSource AudioSource
@@ -38,7 +41,10 @@ public class PuckController : MonoBehaviour
 		this.UpdateAsObservable ()
 			.Select (_ => GetPositionVector ())
 			.DistinctUntilChanged ()
-			.Subscribe (position => Trail.transform.localPosition = position);			
+			.Subscribe (position => Trail.transform.localPosition = position);
+
+		this.OnCollisionEnter2DAsObservable ()
+			.Subscribe (_ => AudioSource.Play ());
 	}
 
 	Vector3 GetPositionVector ()
@@ -52,10 +58,5 @@ public class PuckController : MonoBehaviour
 		{
 			return Vector3.zero;
 		}
-	}
-
-	void OnCollisionEnter2D (Collision2D collision)
-	{
-		AudioSource.Play ();
 	}
 }
