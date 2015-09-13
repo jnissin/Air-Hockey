@@ -1,0 +1,33 @@
+{
+  "name": "Air-Hockey",
+  "version": "0.0.0",
+  "main": "dist/server.js",
+  "dependencies": {
+    "babel": "^5.8.23",
+    "express": "^4.13.3",
+    "express-ws": "^1.0.0-rc.1",
+    "lodash": "^3.10.1",
+    "pm2": "^0.14.7"
+  },
+  "devDependencies": {
+    "eslint": "^0.24.1"
+  },
+  "scripts": {
+    "babel-compile-watch": "npm run-script babel-compile -- --watch",
+    "babel-compile": "$(npm bin)/babel src --out-dir dist",
+    "postinstall": "npm build",
+    "start": "NODE_ENV=development $(npm bin)/pm2-dev start dist/server.js",
+    "start-prod": "NODE_ENV=production $(npm bin)/pm2 start dist/server.js",
+    "build": "npm run-script babel-compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jnissin/Air-Hockey.git"
+  },
+  "author": "Sten Hägglund",
+  "license": "All rights reserved",
+  "bugs": {
+    "url": "https://github.com/jnissin/Air-Hockey/issues"
+  },
+  "homepage": "https://github.com/jnissin/Air-Hockey"
+}
