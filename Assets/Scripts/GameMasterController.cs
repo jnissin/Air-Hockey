@@ -59,7 +59,9 @@ public class GameMasterController : MonoBehaviour {
 		           .OnDestroyAsObservable ()
 		           .Delay (TimeSpan.FromSeconds (1))
 		           .Subscribe (_ => Instantiate (PuckPrefab));
-				Destroy(ev.gameObject);
+			
+//				ev.gameObject.SetActive (false);
+				Destroy (ev.gameObject);
 			});
 
 	}

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UniRx;
+using UniRx.Triggers;
 
 public class PuckController : MonoBehaviour
 {
@@ -32,19 +34,23 @@ public class PuckController : MonoBehaviour
 	{
 		AudioSource = GetComponent<AudioSource> ();
 		Rigidbody = GetComponent<Rigidbody2D> ();
+
+		this.UpdateAsObservable ()
+			.Select (_ => GetPositionVector ())
+			.DistinctUntilChanged ()
+			.Subscribe (position => Trail.transform.localPosition = position);				
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+	Vector3 GetPositionVector ()
 	{
 		if (Rigidbody.velocity.magnitude > 0.0f)
 		{
 			Vector2 posXY = Rigidbody.velocity.normalized * -0.2f;
-			Trail.transform.localPosition = new Vector3 (posXY.x, posXY.y, 0.0f);
+			return new Vector3 (posXY.x, posXY.y, 0.0f);
 		}
 		else
 		{
-			Trail.transform.localPosition = Vector3.zero;
+			return Vector3.zero;
 		}
 	}
 
