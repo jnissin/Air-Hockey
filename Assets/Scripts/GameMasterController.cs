@@ -10,12 +10,11 @@ using UniRx.Triggers;
 
 */
 public class GameMasterController : MonoBehaviour {
-	
-	private int _startTime = 0;
 
 	public IntReactiveProperty PlayerOneScore { get; protected set; }
 	public IntReactiveProperty PlayerTwoScore { get; protected set; }
-	public IntReactiveProperty GameTimeSeconds { get; protected set; }
+	public StringReactiveProperty PlayerOneName { get; protected set; }
+	public StringReactiveProperty PlayerTwoName { get; protected set; }
 
 	public Text PlayerOneNameDisplay = null;
 	public Text PlayerTwoNameDisplay = null;
@@ -28,31 +27,30 @@ public class GameMasterController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		PlayerTwoScore = new IntReactiveProperty(0);
 		PlayerOneScore = new IntReactiveProperty(0);
-		GameTimeSeconds = new IntReactiveProperty(60);
-		
-		Observable
-			.Interval(TimeSpan.FromSeconds(1))
-			.Subscribe(_ => GameTimeSeconds.Value += 1);
+		PlayerTwoScore = new IntReactiveProperty(0);
+		PlayerOneName = new StringReactiveProperty("Player A");
+		PlayerTwoName = new StringReactiveProperty("Player B");
 			
-		PlayerTwoScore.Subscribe( score => PlayerTwoScoreDisplay.text = score.ToString());
 		PlayerOneScore.Subscribe( score => PlayerOneScoreDisplay.text = score.ToString());
-		
-		PlayerTwoGoal
-			.OnTriggerEnter2DAsObservable ()
-			.Where (collision => collision.gameObject.CompareTag("Puck"))
-			.Subscribe (_ => PlayerOneScore.Value += 1);
+		PlayerTwoScore.Subscribe( score => PlayerTwoScoreDisplay.text = score.ToString());
+		PlayerOneName.Subscribe( name => PlayerOneNameDisplay.text = name);
+		PlayerTwoName.Subscribe( name => PlayerTwoNameDisplay.text = name);
 		
 		PlayerOneGoal
 			.OnTriggerEnter2DAsObservable ()
 			.Where (collision => collision.gameObject.CompareTag("Puck"))
 			.Subscribe (_ => PlayerTwoScore.Value += 1);
-
+		
 		PlayerTwoGoal
+			.OnTriggerEnter2DAsObservable ()
+			.Where (collision => collision.gameObject.CompareTag("Puck"))
+			.Subscribe (_ => PlayerOneScore.Value += 1);
+
+		PlayerOneGoal
 			.OnTriggerExit2DAsObservable ()
-			.Merge (PlayerOneGoal.OnTriggerExit2DAsObservable())
-			.Where (trigger => trigger.gameObject.CompareTag("Puck"))
+			.Merge (PlayerTwoGoal.OnTriggerExit2DAsObservable())
+			.Where (ev => ev.gameObject.CompareTag("Puck"))
 			.Delay (TimeSpan.FromSeconds (0.5))
 			.Subscribe(ev => {
 				ev.gameObject
